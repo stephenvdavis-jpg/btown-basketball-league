@@ -85,9 +85,19 @@
       margin-top: 14px;
     }
 
-    .hero-copy {
-      max-width: 700px;
+    .hero-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       margin-top: 20px;
+    }
+
+    .hero-text {
+      flex: 1.1;
+      min-width: 0;
+    }
+
+    .hero-copy {
       color: #444;
       font-size: 17px;
     }
@@ -96,11 +106,24 @@
       margin-top: 10px;
     }
 
+    .hero-media {
+      flex: 0.9;
+      min-width: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 420px;
+      display: block;
+      border-radius: 12px;
+    }
+
     .button-row {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 26px;
+      max-width: 420px;
     }
 
     .btn {
@@ -280,6 +303,19 @@
         padding: 32px;
       }
     }
+
+    @media (min-width: 900px) {
+      .hero-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .hero-media {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
   </style>
 </head>
 <body>
@@ -289,16 +325,23 @@
       <h1>Btown Basketball League</h1>
       <div class="accent-line"></div>
 
-      <div class="hero-copy">
-        <p>A simple, low-cost basketball league built around Wednesday nights, balanced teams, and good full-court runs.</p>
-        <p>This is a relatively serious pickup league for players who already know how to play organized full-court basketball.</p>
-        <p>The goal is to make it feel like more than just games: a solid weekly run where people can hang out, bring friends or family, and enjoy a good summer night around the court.</p>
-      </div>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="hero-copy">
+            <p>A simple, low-cost basketball league built around Wednesday nights, balanced teams, and good full-court runs.</p>
+            <p>This is a relatively serious pickup league for players who already know how to play organized full-court basketball.</p>
+            <p>The goal is to make it feel like more than just games: a solid weekly run where people can hang out, bring friends or family, and enjoy a good summer night around the court.</p>
+          </div>
 
-      <div class="button-row">
-<img src="hoops.png" style="width:100%; margin-top:20px; border-radius:12px;">
-        <a class="btn btn-primary" href="#signup">Join the League</a>
-        <a class="btn btn-secondary" href="#details">League Details</a>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#signup">Join the League</a>
+            <a class="btn btn-secondary" href="#details">League Details</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="hoops.png" alt="Btown Basketball League outdoor hoops image" class="hero-image">
+        </div>
       </div>
 
       <div class="facts-grid">

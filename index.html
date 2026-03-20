@@ -6,7 +6,7 @@
   <title>Btown Basketball League</title>
   <meta
     name="description"
-    content="Btown Basketball League is a low-cost Burlington, Vermont basketball league with Wednesday night full-court games, balanced teams, simple rules, and a 6-week season built for good runs."
+    content="Btown Basketball League is a low-cost Burlington, Vermont basketball league with Wednesday night full-court games, balanced teams, simple rules, prizes, and a 6-week season built for good runs."
   />
 
   <style>
@@ -43,7 +43,7 @@
       text-transform: uppercase;
     }
 
-    h1, h2, p { margin: 0; }
+    h1, h2, h3, p { margin: 0; }
 
     .hero h1 {
       margin-top: 18px;
@@ -51,6 +51,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.04em;
+      line-height: 0.95;
     }
 
     .accent-line {
@@ -60,83 +61,116 @@
       margin-top: 14px;
     }
 
-    .hero-copy {
+    .hero-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       margin-top: 20px;
+    }
+
+    .hero-text {
+      flex: 1.1;
+      min-width: 0;
+    }
+
+    .hero-copy {
       color: #444;
       font-size: 17px;
     }
 
-    .hero-copy p + p { margin-top: 10px; }
+    .hero-copy p + p {
+      margin-top: 10px;
+    }
 
-    /* IMAGE FIX */
+    .hero-media {
+      flex: 0.9;
+      min-width: 0;
+    }
+
     .hero-image {
       width: 100%;
-      max-width: 520px;
-      margin-top: 24px;
-      border-radius: 12px;
-      border: 1px solid #000;
+      max-width: 420px;
       display: block;
+      border-radius: 12px;
     }
 
     .button-row {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 26px;
+      max-width: 420px;
     }
 
     .btn {
-      padding: 14px;
+      padding: 14px 18px;
       border-radius: 12px;
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
       text-align: center;
       display: inline-block;
+      letter-spacing: 0.08em;
+      text-decoration: none;
     }
 
     .btn-primary { background: #000; color: #fff; }
-    .btn-secondary { border: 1px solid #000; }
+    .btn-secondary { border: 1px solid #000; color: #000; }
     .btn-accent { background: #ff7a00; color: #000; }
 
-    .facts-grid {
+    .facts-grid,
+    .cards-grid,
+    .split-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
+    }
+
+    .facts-grid {
+      grid-template-columns: repeat(2, 1fr);
       margin-top: 28px;
     }
 
-    .fact {
+    .fact,
+    .card,
+    .signup-box,
+    .form-box {
       border: 1px solid #000;
       border-radius: 16px;
+    }
+
+    .fact {
       padding: 14px;
       text-align: center;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .cards-grid {
-      display: grid;
-      gap: 12px;
+      grid-template-columns: 1fr;
     }
 
     .card {
-      border: 1px solid #000;
-      border-radius: 16px;
       padding: 20px;
     }
 
-    .card h2 {
-      font-size: 18px;
+    .card h2,
+    .signup-box h2,
+    .rules-title {
+      font-size: 20px;
       font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
-    .card p {
+    .card p,
+    .signup-box p,
+    .form-box p {
       margin-top: 8px;
       font-size: 14px;
       color: #444;
+      line-height: 1.65;
     }
 
     .highlight {
@@ -148,163 +182,241 @@
       color: #fff;
     }
 
-    .list-item {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      font-size: 14px;
+    .dark-section .label,
+    .dark-section .rules-title {
+      color: #ff9a3d;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .rules-header {
+      margin-bottom: 20px;
+    }
+
+    .split-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .list {
+      margin-top: 14px;
+    }
+
+    .list-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      font-size: 14px;
       font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .signup-box {
-      border: 2px solid #000;
-      border-radius: 16px;
+      border-width: 2px;
       padding: 24px;
+    }
+
+    .signup-box .label {
+      color: #ff7a00;
+    }
+
+    .form-box {
+      border-style: dashed;
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    .form-box-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card .btn {
+      margin-top: 16px;
     }
 
     footer {
       padding: 24px 0;
+    }
+
+    .footer-text {
       font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #666;
     }
 
     @media (min-width: 640px) {
-      .hero h1 { font-size: 64px; }
+      .section { padding: 56px 0; }
+      .hero h1 { font-size: 72px; }
       .button-row { flex-direction: row; }
       .facts-grid { grid-template-columns: repeat(3, 1fr); }
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid,
+      .split-grid { grid-template-columns: repeat(2, 1fr); }
+      .signup-box { padding: 32px; }
+    }
+
+    @media (min-width: 900px) {
+      .hero-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .hero-media {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   </style>
 </head>
-
 <body>
+  <section class="section border-bottom hero">
+    <div class="container">
+      <div class="eyebrow">Burlington, Vermont</div>
+      <h1>Btown Basketball League</h1>
+      <div class="accent-line"></div>
 
-<!-- HERO -->
-<section class="section border-bottom hero">
-  <div class="container">
-    <div class="eyebrow">Burlington, Vermont</div>
-    <h1>Btown Basketball League</h1>
-    <div class="accent-line"></div>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="hero-copy">
+            <p>A simple, low-cost basketball league built around Wednesday nights, balanced teams, and good full-court runs.</p>
+            <p>This is a relatively serious pickup league for players who already know how to play organized full-court basketball.</p>
+            <p>The goal is to make it feel like more than just one weekly game: a competitive run with standings, a prize to play for, and a groupchat that helps people organize pickup runs across the city between league nights.</p>
+            <p>So even when it is not Wednesday, you still have people to hoop with.</p>
+          </div>
 
-    <div class="hero-copy">
-      <p>A simple, low-cost basketball league built around Wednesday nights, balanced teams, and good full-court runs.</p>
-      <p>This is a relatively serious pickup league for players who already know how to play organized full-court basketball.</p>
-      <p>The goal is to make it feel like more than just games: a solid weekly run where people can hang out, bring friends or family, and enjoy a good summer night around the court.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#signup">Join the League</a>
+            <a class="btn btn-secondary" href="#details">League Details</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="hoops.png" alt="Btown Basketball League outdoor hoops image" class="hero-image">
+        </div>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact">Starts after April 21</div>
+        <div class="fact">Wednesday nights</div>
+        <div class="fact">Thursday backup</div>
+        <div class="fact">$20 per player</div>
+        <div class="fact">6-week season</div>
+        <div class="fact">Outdoor first</div>
+      </div>
     </div>
+  </section>
 
-    <!-- IMAGE -->
-    <img src="hoops.png" class="hero-image">
+  <section id="details" class="section">
+    <div class="container">
+      <div class="cards-grid">
+        <div class="card">
+          <h2>Low-cost league</h2>
+          <p>$20 covers the full 6-week session.</p>
+        </div>
 
-    <!-- BUTTONS -->
-    <div class="button-row">
-      <a class="btn btn-primary" href="#signup">Join the League</a>
-      <a class="btn btn-secondary" href="#details">League Details</a>
+        <div class="card">
+          <h2>Balanced teams</h2>
+          <p>Players sign up individually and rate their own skill level from 1 to 10 so teams can be built as evenly as possible.</p>
+        </div>
+
+        <div class="card">
+          <h2>7-player max rosters</h2>
+          <p>Smaller teams mean better run and more playing time.</p>
+        </div>
+
+        <div class="card">
+          <h2>Rain backup</h2>
+          <p>Part of where your fees are going is toward renting an indoor space on rainy days when needed.</p>
+        </div>
+
+        <div class="card">
+          <h2>Reward / Prize</h2>
+          <p>The winning team gets a pizza party and free t-shirts. There is an actual prize at the end, so the games still mean something.</p>
+        </div>
+
+        <div class="card">
+          <h2>Social atmosphere</h2>
+          <p>The idea is to build a league night people want to stick around for, not just show up, play, and leave.</p>
+        </div>
+
+        <div class="card highlight">
+          <h2>Join the Groupchat</h2>
+          <p>
+            A citywide groupchat for organizing pickup runs across Burlington. Stay updated on the league and find games throughout the week.
+          </p>
+          <a class="btn btn-accent" href="https://t.me/+Akss4_f1AOQ5NmYx" target="_blank">
+            Join Pickup Chat
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- FACTS -->
-    <div class="facts-grid">
-      <div class="fact">Starts after April 21</div>
-      <div class="fact">Wednesday nights</div>
-      <div class="fact">Thursday backup</div>
-      <div class="fact">$20 per player</div>
-      <div class="fact">6-week season</div>
-      <div class="fact">Outdoor first</div>
+  <section class="section border-y dark-section">
+    <div class="container">
+      <div class="rules-header">
+        <div class="rules-title">Rules</div>
+      </div>
+
+      <div class="split-grid">
+        <div>
+          <div class="list">
+            <div class="list-item">4-week regular season</div>
+            <div class="list-item">2-week playoffs</div>
+            <div class="list-item">Full-court 5v5</div>
+            <div class="list-item">Under 4 minutes, clock stoppage</div>
+            <div class="list-item">Offense calls fouls</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="list">
+            <div class="list-item">One-shot shooting foul free throws</div>
+            <div class="list-item">No full-court press</div>
+            <div class="list-item">Contested calls: shoot for it</div>
+            <div class="list-item">Everyone sits once before someone sits twice</div>
+            <div class="list-item">League marshal keeps order and time</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- DETAILS -->
-<section id="details" class="section">
-  <div class="container">
-    <div class="cards-grid">
-
-      <div class="card">
-        <h2>Low-cost league</h2>
-        <p>$20 covers the full 6-week session.</p>
-      </div>
-
-      <div class="card">
-        <h2>Balanced teams</h2>
-        <p>Players sign up individually and teams are built from self-ratings.</p>
-      </div>
-
-      <div class="card">
-        <h2>7-player max rosters</h2>
-        <p>Smaller teams mean better run and more playing time.</p>
-      </div>
-
-      <div class="card">
-        <h2>Rain backup</h2>
-        <p>Thursday and indoor options are part of the plan when needed.</p>
-      </div>
-
-      <div class="card">
-        <h2>Social atmosphere</h2>
-        <p>The idea is to build a league night people want to stick around for, not just show up, play, and leave.</p>
-      </div>
-
-      <!-- GROUPCHAT CTA -->
-      <div class="card highlight">
-        <h2>Join the Groupchat</h2>
+  <section id="signup" class="section">
+    <div class="container">
+      <div class="signup-box">
+        <div class="label">Player Signup</div>
+        <h2>Want In?</h2>
         <p>
-          A citywide groupchat for organizing pickup runs across Burlington. Stay updated on the league and find games throughout the week.
+          Fill out the signup form to register, rate your skill level, and request to be paired with a friend if you want. This league is not designed for total beginners still learning the basic rules and flow of full-court basketball.
         </p>
-        <a class="btn btn-accent" href="https://t.me/+Akss4_f1AOQ5NmYx" target="_blank">
-          Join Pickup Chat
-        </a>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- RULES -->
-<section class="section border-y dark-section">
-  <div class="container">
-    <div class="cards-grid">
-
-      <div>
-        <div class="list-item">4-week regular season</div>
-        <div class="list-item">2-week playoffs</div>
-        <div class="list-item">Full-court 5v5</div>
-        <div class="list-item">Two 20-minute halves</div>
-      </div>
-
-      <div>
-        <div class="list-item">Running clock</div>
-        <div class="list-item">Self-officiated</div>
-        <div class="list-item">No zone defense</div>
-        <div class="list-item">Shoot for it disputes</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SIGNUP -->
-<section id="signup" class="section">
-  <div class="container">
-    <div class="signup-box">
-      <h2>Want In?</h2>
-      <p>
-        Fill out the signup form to register and rate your skill level. This league is not designed for total beginners.
-      </p>
-
-      <div style="margin-top:20px;">
-        <a class="btn btn-accent" href="https://forms.gle/C7VXoCeqsN3d8ebLA" target="_blank">
-          Open Signup Form
-        </a>
+        <div class="form-box">
+          <div class="form-box-title">Player form</div>
+          <p>Use the form below to join the league.</p>
+          <a class="btn btn-accent" href="https://forms.gle/C7VXoCeqsN3d8ebLA" target="_blank">
+            Open Signup Form
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="border-top">
-  <div class="container">
-    Btown Basketball League
-  </div>
-</footer>
-
+  <footer class="border-top">
+    <div class="container">
+      <div class="footer-text">Btown Basketball League</div>
+    </div>
+  </footer>
 </body>
 </html>
